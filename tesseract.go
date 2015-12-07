@@ -1,7 +1,8 @@
 package tesseract
 
-// #cgo LDFLAGS: -L /usr/local/lib -ltesseract
-// #include "tesseract/capi.h"
+// #cgo darwin LDFLAGS: -L /usr/local/lib -ltesseract
+// #cgo windows LDFLAGS: /opt/tesseract/libtesseract.dll
+// #include "/opt/tesseract/api/capi.h"
 // #include <stdlib.h>
 import "C"
 
@@ -15,7 +16,7 @@ import (
 	"unicode/utf8"
 	"unsafe"
 
-	"gopkg.in/GeertJohan/go.leptonica.v1"
+	"github.com/geoko86/go.leptonica"
 )
 
 const version = "1.0"
